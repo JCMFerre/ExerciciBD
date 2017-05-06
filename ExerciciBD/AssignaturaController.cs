@@ -7,54 +7,51 @@ namespace ExerciciBD
     class AssignaturaController : Controller<Assignatura>
     {
 
-        private bool execNonQuery(MySqlCommand command)
-        {
-            int numRowsAffected;
-            getConnection().Open();
-            numRowsAffected = command.ExecuteNonQuery();
-            getConnection().Close();
-            return numRowsAffected > 0;
-        }
-
         public override bool add(Assignatura objecte)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO assignatures VALUES (null, ?assignaturesNom)", getConnection());
-            command.Parameters.AddWithValue("?assignaturesNom", objecte.Nom);
-            return execNonQuery(command);
+            return execNonQuery(getCommand(false, true, "INSERT INTO assignatures VALUES (null, ?assignaturesNom)", objecte));
         }
 
         public override bool delete(Assignatura objecte)
         {
-            MySqlCommand command = new MySqlCommand("DELETE FROM assignatures WHERE idassignatures = ?idassignatures", getConnection());
-            command.Parameters.AddWithValue("?idassignatures", objecte.Id);
-            return execNonQuery(command);
+            return execNonQuery(getCommand(true, false, "DELETE FROM assignatures WHERE idassignatures = ?idassignatures", objecte));
         }
 
         public override Assignatura get(object primaryKey)
         {
             Assignatura assignatura = null;
-            MySqlCommand command = new MySqlCommand("SELECT * FROM assignatures WHERE idassignatures=?idassignatures", getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM assignatures WHERE idassignatures=?idassignatures", connection);
             command.Parameters.AddWithValue("?idassignatures", primaryKey.ToString());
-            getConnection().Open();
+            connection.Open();
             MySqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 if (reader.Read())
                 {
-                    assignatura = new Assignatura(reader.GetInt32(0), reader.GetString(1));
+                    assignatura = new Assignatura(reader.GetInt32(0), getString(1, reader));
                 }
             }
-            getConnection().Close();
+            connection.Close();
             return assignatura;
         }
 
         public override bool update(Assignatura objecte)
         {
-            MySqlCommand command = getConnection().CreateCommand();
-            command.CommandText = "UPDATE assignatures SET assignaturesNom = ?assignaturesNom WHERE idassignatures = ?idassignatures";
-            command.Parameters.AddWithValue("?assignaturesNom", objecte.Nom);
-            command.Parameters.AddWithValue("?idassignatures", objecte.Id);
-            return execNonQuery(command);
+            return execNonQuery(getCommand(true, true, "UPDATE assignatures SET assignaturesNom = ?assignaturesNom WHERE idassignatures = ?idassignatures", objecte));
+        }
+
+        private MySqlCommand getCommand(bool incluirID, bool incluirResto, string cmd, Assignatura assignatura)
+        {
+            MySqlCommand command = new MySqlCommand(cmd, connection);
+            if (incluirID)
+            {
+                command.Parameters.AddWithValue("?idassignatures", assignatura.Id);
+            }
+            if (incluirResto)
+            {
+                command.Parameters.AddWithValue("?assignaturesNom", string.IsNullOrEmpty(assignatura.Nom) ? null : assignatura.Nom);
+            }
+            return command;
         }
     }
 }

@@ -10,55 +10,52 @@ namespace ExerciciBD
     class CursController : Controller<Curso>
     {
 
-        private bool execNonQuery(MySqlCommand command)
-        {
-            int numRowsAffected;
-            getConnection().Open();
-            numRowsAffected = command.ExecuteNonQuery();
-            getConnection().Close();
-            return numRowsAffected > 0;
-        }
-
         public override bool add(Curso objecte)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO cursos VALUES (null, ?cursosNom)", getConnection());
-            command.Parameters.AddWithValue("?cursosNom", objecte.Nom);
-            return execNonQuery(command);
+            return execNonQuery(getCommand(false, true, "INSERT INTO cursos VALUES (null, ?cursosNom)", objecte));
         }
 
         public override bool delete(Curso objecte)
         {
-            MySqlCommand command = new MySqlCommand("DELETE FROM cursos WHERE idCursos = ?idCursos", getConnection());
-            command.Parameters.AddWithValue("?idCursos", objecte.Id);
-            return execNonQuery(command);
+            return execNonQuery(getCommand(true, false, "DELETE FROM cursos WHERE idCursos = ?idCursos", objecte));
         }
 
         public override Curso get(object primaryKey)
         {
             Curso curs = null;
-            MySqlCommand command = new MySqlCommand("SELECT * FROM cursos WHERE idCursos=?idCursos", getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM cursos WHERE idCursos=?idCursos", connection);
             command.Parameters.AddWithValue("?idCursos", primaryKey.ToString());
-            getConnection().Open();
+            connection.Open();
             MySqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 if (reader.Read())
                 {
-                    curs = new Curso(reader.GetInt32(0), reader.GetString(1));
+                    curs = new Curso(reader.GetInt32(0), getString(1, reader));
                 }
             }
-            getConnection().Close();
+            connection.Close();
             return curs;
 
         }
 
         public override bool update(Curso objecte)
         {
-            MySqlCommand command = getConnection().CreateCommand();
-            command.CommandText = "UPDATE cursos SET cursosNom = ?cursosNom WHERE idCursos = ?idCursos";
-            command.Parameters.AddWithValue("?cursosNom", objecte.Nom);
-            command.Parameters.AddWithValue("?idCursos", objecte.Id);
-            return execNonQuery(command);
+            return execNonQuery(getCommand(true, true, "UPDATE cursos SET cursosNom = ?cursosNom WHERE idCursos = ?idCursos", objecte));
+        }
+
+        private MySqlCommand getCommand(bool incluirID, bool incluirResto, string cmd, Curso curso)
+        {
+            MySqlCommand command = new MySqlCommand(cmd, connection);
+            if (incluirID)
+            {
+                command.Parameters.AddWithValue("?idCursos", curso.Id);
+            }
+            if (incluirResto)
+            {
+                command.Parameters.AddWithValue("?cursosNom", string.IsNullOrEmpty(curso.Nom) ? null : curso.Nom);
+            }
+            return command;
         }
     }
 }
