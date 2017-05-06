@@ -3,13 +3,12 @@ D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\bin\Debug\ExerciciBD.exe
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\bin\Debug\ExerciciBD.pdb
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\bin\Debug\MySql.Data.dll
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\bin\Debug\MySql.Data.xml
-D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.csprojResolveAssemblyReference.cache
+D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.AboutBox.resources
+D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.FormAlumno.resources
+D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.FormAsignatura.resources
+D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.FormCurso.resources
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.FormPrincipal.resources
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.Properties.Resources.resources
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.csproj.GenerateResource.Cache
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.exe
 D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.pdb
-D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.AboutBox.resources
-D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.FormAlumno.resources
-D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.FormAsignatura.resources
-D:\Proyectos\VisualStudio\ExerciciBD\ExerciciBD\obj\Debug\ExerciciBD.FormCurso.resources
