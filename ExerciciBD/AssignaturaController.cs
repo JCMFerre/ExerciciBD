@@ -6,6 +6,9 @@ namespace ExerciciBD
 {
     class AssignaturaController : Controller<Assignatura>
     {
+        public AssignaturaController(OnConnectionFailed listener) : base(listener)
+        {
+        }
 
         public override bool add(Assignatura objecte)
         {
@@ -20,18 +23,25 @@ namespace ExerciciBD
         public override Assignatura get(object primaryKey)
         {
             Assignatura assignatura = null;
-            MySqlCommand command = new MySqlCommand("SELECT * FROM assignatures WHERE idassignatures=?idassignatures", connection);
-            command.Parameters.AddWithValue("?idassignatures", primaryKey.ToString());
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                if (reader.Read())
+                MySqlCommand command = new MySqlCommand("SELECT * FROM assignatures WHERE idassignatures=?idassignatures", connection);
+                command.Parameters.AddWithValue("?idassignatures", primaryKey.ToString());
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    assignatura = new Assignatura(reader.GetInt32(0), getString(1, reader));
+                    if (reader.Read())
+                    {
+                        assignatura = new Assignatura(reader.GetInt32(0), getString(1, reader));
+                    }
                 }
+                connection.Close();
             }
-            connection.Close();
+            catch (MySqlException)
+            {
+                listener.showMessageError();
+            }
             return assignatura;
         }
 

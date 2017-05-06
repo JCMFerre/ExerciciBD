@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ExerciciBD
 {
-    public partial class FormAsignatura : Form
+    public partial class FormAsignatura : Form, OnConnectionFailed
     {
 
         private Controller<Assignatura> controller;
@@ -19,7 +19,7 @@ namespace ExerciciBD
         public FormAsignatura(OnRefreshTable onRefreshTable)
         {
             InitializeComponent();
-            controller = new AssignaturaController();
+            controller = new AssignaturaController(this);
             this.onRefreshTable = onRefreshTable;
         }
 
@@ -105,6 +105,11 @@ namespace ExerciciBD
             }
             MessageBox.Show((esborrat ? "S'ha " :
                 "No s'ha ") + "eliminat correctament.");
+        }
+
+        public void showMessageError()
+        {
+            MessageBox.Show("Comprova que la BD sigui accessible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

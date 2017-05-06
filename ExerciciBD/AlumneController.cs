@@ -9,6 +9,9 @@ namespace ExerciciBD
 {
     class AlumneController : Controller<Alumno>
     {
+        public AlumneController(OnConnectionFailed listener) : base(listener)
+        {
+        }
 
         public override bool add(Alumno objecte)
         {
@@ -28,20 +31,27 @@ namespace ExerciciBD
         public override Alumno get(object primaryKey)
         {
             Alumno alumno = null;
-            MySqlCommand command = new MySqlCommand("SELECT * FROM alumnes WHERE idalumnes=?idalumnes", connection);
-            command.Parameters.AddWithValue("?idalumnes", primaryKey.ToString());
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                if (reader.Read())
+                MySqlCommand command = new MySqlCommand("SELECT * FROM alumnes WHERE idalumnes=?idalumnes", connection);
+                command.Parameters.AddWithValue("?idalumnes", primaryKey.ToString());
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    alumno = new Alumno(reader.GetInt32(0), getString(1, reader),
-                     getString(2, reader), getString(3, reader), getString(4, reader),
-                      getString(5, reader), getString(6, reader));
+                    if (reader.Read())
+                    {
+                        alumno = new Alumno(reader.GetInt32(0), getString(1, reader),
+                         getString(2, reader), getString(3, reader), getString(4, reader),
+                          getString(5, reader), getString(6, reader));
+                    }
                 }
+                connection.Close();
             }
-            connection.Close();
+            catch (MySqlException)
+            {
+                listener.showMessageError();
+            }
             return alumno;
         }
 
@@ -63,8 +73,6 @@ namespace ExerciciBD
             }
             return command;
         }
-
-
 
     }
 }

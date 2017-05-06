@@ -9,6 +9,9 @@ namespace ExerciciBD
 {
     class CursController : Controller<Curso>
     {
+        public CursController(OnConnectionFailed listener) : base(listener)
+        {
+        }
 
         public override bool add(Curso objecte)
         {
@@ -23,20 +26,26 @@ namespace ExerciciBD
         public override Curso get(object primaryKey)
         {
             Curso curs = null;
-            MySqlCommand command = new MySqlCommand("SELECT * FROM cursos WHERE idCursos=?idCursos", connection);
-            command.Parameters.AddWithValue("?idCursos", primaryKey.ToString());
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                if (reader.Read())
+                MySqlCommand command = new MySqlCommand("SELECT * FROM cursos WHERE idCursos=?idCursos", connection);
+                command.Parameters.AddWithValue("?idCursos", primaryKey.ToString());
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    curs = new Curso(reader.GetInt32(0), getString(1, reader));
+                    if (reader.Read())
+                    {
+                        curs = new Curso(reader.GetInt32(0), getString(1, reader));
+                    }
                 }
+                connection.Close();
             }
-            connection.Close();
+            catch (MySqlException)
+            {
+                listener.showMessageError();
+            }
             return curs;
-
         }
 
         public override bool update(Curso objecte)

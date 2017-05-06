@@ -46,7 +46,7 @@
             // 
             this.tbNom.Location = new System.Drawing.Point(96, 25);
             this.tbNom.Name = "tbNom";
-            this.tbNom.Size = new System.Drawing.Size(149, 20);
+            this.tbNom.Size = new System.Drawing.Size(152, 20);
             this.tbNom.TabIndex = 0;
             // 
             // label2
@@ -62,7 +62,7 @@
             // 
             this.btnNetejarCamps.Location = new System.Drawing.Point(15, 105);
             this.btnNetejarCamps.Name = "btnNetejarCamps";
-            this.btnNetejarCamps.Size = new System.Drawing.Size(230, 23);
+            this.btnNetejarCamps.Size = new System.Drawing.Size(233, 23);
             this.btnNetejarCamps.TabIndex = 4;
             this.btnNetejarCamps.Text = "Netejar camps";
             this.btnNetejarCamps.UseVisualStyleBackColor = true;
@@ -73,7 +73,7 @@
             this.btnEliminar.Enabled = false;
             this.btnEliminar.Location = new System.Drawing.Point(169, 76);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(76, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(79, 23);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -128,9 +128,9 @@
             // 
             // btnCercar
             // 
-            this.btnCercar.Location = new System.Drawing.Point(157, 144);
+            this.btnCercar.Location = new System.Drawing.Point(169, 144);
             this.btnCercar.Name = "btnCercar";
-            this.btnCercar.Size = new System.Drawing.Size(88, 23);
+            this.btnCercar.Size = new System.Drawing.Size(79, 23);
             this.btnCercar.TabIndex = 6;
             this.btnCercar.Text = "Cercar";
             this.btnCercar.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             // 
             this.tbCercar.Location = new System.Drawing.Point(85, 147);
             this.tbCercar.Name = "tbCercar";
-            this.tbCercar.Size = new System.Drawing.Size(66, 20);
+            this.tbCercar.Size = new System.Drawing.Size(78, 20);
             this.tbCercar.TabIndex = 5;
             // 
             // label9

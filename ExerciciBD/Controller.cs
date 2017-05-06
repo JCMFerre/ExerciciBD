@@ -12,10 +12,12 @@ namespace ExerciciBD
     {
 
         protected MySqlConnection connection;
+        protected OnConnectionFailed listener;
 
-        public Controller()
+        public Controller(OnConnectionFailed listener)
         {
             connection = Connection.getConnection();
+            this.listener = listener;
         }
 
         public abstract bool add(T objecte);
@@ -34,9 +36,17 @@ namespace ExerciciBD
         protected bool execNonQuery(MySqlCommand command)
         {
             int numRowsAffected;
-            connection.Open();
-            numRowsAffected = command.ExecuteNonQuery();
-            connection.Close();
+            try
+            {
+                connection.Open();
+                numRowsAffected = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (MySqlException)
+            {
+                numRowsAffected = 0;
+                listener.showMessageError();
+            }
             return numRowsAffected > 0;
         }
 
@@ -55,4 +65,5 @@ namespace ExerciciBD
         }
 
     }
+
 }

@@ -17,7 +17,6 @@ namespace ExerciciBD
         public FormPrincipal()
         {
             InitializeComponent();
-            onLoadTable(false);
         }
 
         private void activarCampoId(object sender, EventArgs e)
@@ -53,9 +52,9 @@ namespace ExerciciBD
                 datosGridView.DataSource = table;
                 connection.Close();
             }
-            catch (SqlException)
+            catch (MySqlException)
             {
-                MessageBox.Show("Error, comprova que la BD sigui accessible.");
+                MessageBox.Show("Comprova que la BD sigui accessible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fitxesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,21 +75,21 @@
             // alumnesToolStripMenuItem
             // 
             this.alumnesToolStripMenuItem.Name = "alumnesToolStripMenuItem";
-            this.alumnesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alumnesToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.alumnesToolStripMenuItem.Text = "Alumnes";
             this.alumnesToolStripMenuItem.Click += new System.EventHandler(this.alumnesToolStripMenuItem_Click);
             // 
             // cursosToolStripMenuItem
             // 
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.cursosToolStripMenuItem.Text = "Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
             // assignaturesToolStripMenuItem
             // 
             this.assignaturesToolStripMenuItem.Name = "assignaturesToolStripMenuItem";
-            this.assignaturesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.assignaturesToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.assignaturesToolStripMenuItem.Text = "Assignatures";
             this.assignaturesToolStripMenuItem.Click += new System.EventHandler(this.assignaturesToolStripMenuItem_Click);
             // 
@@ -213,8 +213,8 @@
             this.datosGridView.Location = new System.Drawing.Point(12, 91);
             this.datosGridView.Name = "datosGridView";
             this.datosGridView.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.datosGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.datosGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.datosGridView.Size = new System.Drawing.Size(552, 190);
             this.datosGridView.TabIndex = 12;
             // 
@@ -231,6 +231,7 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exercici BD";
+            this.Shown += new System.EventHandler(this.eventoCargarTodos);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

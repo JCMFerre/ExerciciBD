@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ExerciciBD
 {
-    public partial class FormCurso : Form
+    public partial class FormCurso : Form, OnConnectionFailed
     {
 
         private Controller<Curso> controller;
@@ -19,7 +19,7 @@ namespace ExerciciBD
         public FormCurso(OnRefreshTable onRefreshTable)
         {
             InitializeComponent();
-            controller = new CursController();
+            controller = new CursController(this);
             this.onRefreshTable = onRefreshTable;
         }
 
@@ -101,6 +101,11 @@ namespace ExerciciBD
                 btnActualitzar.Enabled = true;
                 btnEliminar.Enabled = true;
             }
+        }
+
+        public void showMessageError()
+        {
+            MessageBox.Show("Comprova que la BD sigui accessible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
