@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fitxesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(489, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(576, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,8 +69,8 @@
             this.cursosToolStripMenuItem,
             this.assignaturesToolStripMenuItem});
             this.fitxesToolStripMenuItem.Name = "fitxesToolStripMenuItem";
-            this.fitxesToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.fitxesToolStripMenuItem.Text = "Fitxes";
+            this.fitxesToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.fitxesToolStripMenuItem.Text = "Manteniment";
             // 
             // alumnesToolStripMenuItem
             // 
@@ -135,6 +136,7 @@
             this.rbAlumne.TabStop = true;
             this.rbAlumne.Text = "Alumne";
             this.rbAlumne.UseVisualStyleBackColor = true;
+            this.rbAlumne.CheckedChanged += new System.EventHandler(this.eventoCargarTodos);
             // 
             // rbCurs
             // 
@@ -145,6 +147,7 @@
             this.rbCurs.TabIndex = 6;
             this.rbCurs.Text = "Curs";
             this.rbCurs.UseVisualStyleBackColor = true;
+            this.rbCurs.CheckedChanged += new System.EventHandler(this.eventoCargarTodos);
             // 
             // rbAssignatura
             // 
@@ -155,20 +158,21 @@
             this.rbAssignatura.TabIndex = 7;
             this.rbAssignatura.Text = "Assignatura";
             this.rbAssignatura.UseVisualStyleBackColor = true;
+            this.rbAssignatura.CheckedChanged += new System.EventHandler(this.eventoCargarTodos);
             // 
             // textBoxID
             // 
             this.textBoxID.Location = new System.Drawing.Point(105, 19);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.ReadOnly = true;
-            this.textBoxID.Size = new System.Drawing.Size(57, 20);
+            this.textBoxID.Size = new System.Drawing.Size(132, 20);
             this.textBoxID.TabIndex = 8;
             // 
             // btnCercar
             // 
-            this.btnCercar.Location = new System.Drawing.Point(168, 18);
+            this.btnCercar.Location = new System.Drawing.Point(243, 18);
             this.btnCercar.Name = "btnCercar";
-            this.btnCercar.Size = new System.Drawing.Size(73, 22);
+            this.btnCercar.Size = new System.Drawing.Size(85, 22);
             this.btnCercar.TabIndex = 9;
             this.btnCercar.Text = "Cercar";
             this.btnCercar.UseVisualStyleBackColor = true;
@@ -194,24 +198,31 @@
             this.groupBox2.Controls.Add(this.textBoxID);
             this.groupBox2.Location = new System.Drawing.Point(230, 37);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(247, 47);
+            this.groupBox2.Size = new System.Drawing.Size(334, 47);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cercar (per)";
             // 
             // datosGridView
             // 
+            this.datosGridView.AllowUserToAddRows = false;
+            this.datosGridView.AllowUserToDeleteRows = false;
+            this.datosGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datosGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.datosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datosGridView.Location = new System.Drawing.Point(12, 91);
             this.datosGridView.Name = "datosGridView";
-            this.datosGridView.Size = new System.Drawing.Size(465, 190);
+            this.datosGridView.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.datosGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.datosGridView.Size = new System.Drawing.Size(552, 190);
             this.datosGridView.TabIndex = 12;
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 293);
+            this.ClientSize = new System.Drawing.Size(576, 293);
             this.Controls.Add(this.datosGridView);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

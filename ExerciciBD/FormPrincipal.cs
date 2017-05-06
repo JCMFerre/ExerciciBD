@@ -17,6 +17,7 @@ namespace ExerciciBD
         public FormPrincipal()
         {
             InitializeComponent();
+            onLoadTable(false);
         }
 
         private void activarCampoId(object sender, EventArgs e)
@@ -26,14 +27,14 @@ namespace ExerciciBD
 
         private void cercarEvent(object sender, EventArgs e)
         {
-            onLoadTable();
+            onLoadTable(true);
         }
 
-        private string getCommandUI()
+        private string getCommandUI(bool hacerCasoRadioButton)
         {
             string command = "SELECT * FROM " + (rbAlumne.Checked ? "alumnes" :
                 rbCurs.Checked ? "cursos" : "assignatures");
-            if (rbPerID.Checked)
+            if (hacerCasoRadioButton && rbPerID.Checked)
             {
                 command += " WHERE " + (rbAlumne.Checked ? "idalumnes" :
                 rbCurs.Checked ? "idCursos" : "idassignatures") + " = " + textBoxID.Text;
@@ -54,7 +55,7 @@ namespace ExerciciBD
             }
             catch (SqlException)
             {
-                MessageBox.Show("Error (pot ser per la data que hi ha a la bd 0000/00/00...");
+                MessageBox.Show("Error, comprova que la BD sigui accessible.");
             }
         }
 
@@ -78,10 +79,16 @@ namespace ExerciciBD
             new FormAsignatura(this).ShowDialog();
         }
 
-        public void onLoadTable()
+        public void onLoadTable(bool hacerCasoRadioButton)
         {
-            string command = getCommandUI();
+            string command = getCommandUI(hacerCasoRadioButton);
             CargarTabla(command);
         }
+
+        private void eventoCargarTodos(object sender, EventArgs e)
+        {
+            onLoadTable(false);
+        }
+
     }
 }

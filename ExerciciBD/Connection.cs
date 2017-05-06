@@ -31,6 +31,8 @@ namespace ExerciciBD
                 builder.Database = "institut";
                 builder.UserID = "root";
                 builder.Password = "";
+                builder.AllowZeroDateTime = false;
+                builder.ConvertZeroDateTime = true;
                 connectionString = builder.ToString();
             }
             return connectionString;

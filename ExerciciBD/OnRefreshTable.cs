@@ -8,6 +8,6 @@ namespace ExerciciBD
 {
     public interface OnRefreshTable
     {
-        void onLoadTable();
+        void onLoadTable(bool hacerCasoRadioButton);
     }
 }

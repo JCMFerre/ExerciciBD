@@ -104,7 +104,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 56);
+            this.label4.Location = new System.Drawing.Point(12, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 13);
             this.label4.TabIndex = 6;
@@ -114,27 +114,27 @@
             // 
             this.tbNIF.Location = new System.Drawing.Point(15, 74);
             this.tbNIF.Name = "tbNIF";
-            this.tbNIF.Size = new System.Drawing.Size(111, 20);
+            this.tbNIF.Size = new System.Drawing.Size(89, 20);
             this.tbNIF.TabIndex = 3;
             // 
             // tbTelefon
             // 
-            this.tbTelefon.Location = new System.Drawing.Point(133, 74);
+            this.tbTelefon.Location = new System.Drawing.Point(110, 74);
             this.tbTelefon.Name = "tbTelefon";
-            this.tbTelefon.Size = new System.Drawing.Size(120, 20);
+            this.tbTelefon.Size = new System.Drawing.Size(75, 20);
             this.tbTelefon.TabIndex = 4;
             // 
             // tbMail
             // 
-            this.tbMail.Location = new System.Drawing.Point(259, 73);
+            this.tbMail.Location = new System.Drawing.Point(191, 74);
             this.tbMail.Name = "tbMail";
-            this.tbMail.Size = new System.Drawing.Size(105, 20);
+            this.tbMail.Size = new System.Drawing.Size(116, 20);
             this.tbMail.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(133, 57);
+            this.label5.Location = new System.Drawing.Point(107, 58);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 11;
@@ -143,7 +143,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(256, 56);
+            this.label6.Location = new System.Drawing.Point(188, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 12;
@@ -152,7 +152,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(370, 56);
+            this.label7.Location = new System.Drawing.Point(310, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 13;
@@ -237,9 +237,9 @@
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(373, 74);
+            this.dateTimePicker.Location = new System.Drawing.Point(313, 74);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(86, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(146, 20);
             this.dateTimePicker.TabIndex = 6;
             // 
             // FormAlumno

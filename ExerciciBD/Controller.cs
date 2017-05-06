@@ -47,7 +47,7 @@ namespace ExerciciBD
             {
                 result = reader.GetString(position);
             }
-            catch (SqlNullValueException ex)
+            catch (SqlNullValueException)
             {
                 result = "";
             }

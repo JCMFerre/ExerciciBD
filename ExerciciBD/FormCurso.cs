@@ -30,7 +30,7 @@ namespace ExerciciBD
                 bool inserit = controller.add(getCursUI(false));
                 if (inserit)
                 {
-                    onRefreshTable.onLoadTable();
+                    onRefreshTable.onLoadTable(false);
                     btnNetejarCamps_Click(null, null);
                 }
                 MessageBox.Show((inserit ? "S'ha " :
@@ -45,6 +45,7 @@ namespace ExerciciBD
 
         private bool comprovarCamps()
         {
+            // Aquí hi aniria la validació dels camps.
             return true;
         }
 
@@ -65,7 +66,7 @@ namespace ExerciciBD
                 bool update = controller.update(getCursUI(true));
                 if (update)
                 {
-                    onRefreshTable.onLoadTable();
+                    onRefreshTable.onLoadTable(false);
                     btnNetejarCamps_Click(null, null);
                 }
                 MessageBox.Show((update ? "S'ha " :
@@ -78,7 +79,7 @@ namespace ExerciciBD
             bool esborrat = controller.delete(getCursUI(true));
             if (esborrat)
             {
-                onRefreshTable.onLoadTable();
+                onRefreshTable.onLoadTable(false);
                 btnNetejarCamps_Click(null, null);
             }
             MessageBox.Show((esborrat ? "S'ha " :
