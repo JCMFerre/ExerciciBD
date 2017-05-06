@@ -66,16 +66,19 @@ namespace ExerciciBD
 
         private void alumnesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            rbAlumne.Checked = true;
             new FormAlumno(this).ShowDialog();
         }
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            rbCurs.Checked = true;
             new FormCurso(this).ShowDialog();
         }
 
         private void assignaturesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            rbAssignatura.Checked = true;
             new FormAsignatura(this).ShowDialog();
         }
 
