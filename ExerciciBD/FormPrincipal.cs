@@ -89,8 +89,12 @@ namespace ExerciciBD
 
         private void eventoCargarTodos(object sender, EventArgs e)
         {
-            onLoadTable(false);
+            if (((RadioButton)sender).Checked) onLoadTable(false);
         }
 
+        private void eventoCargarTodosFormLoad(object sender, EventArgs e)
+        {
+            onLoadTable(false);
+        }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fitxesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,7 +129,7 @@
             // 
             this.rbAlumne.AutoSize = true;
             this.rbAlumne.Checked = true;
-            this.rbAlumne.Location = new System.Drawing.Point(6, 19);
+            this.rbAlumne.Location = new System.Drawing.Point(6, 21);
             this.rbAlumne.Name = "rbAlumne";
             this.rbAlumne.Size = new System.Drawing.Size(60, 17);
             this.rbAlumne.TabIndex = 5;
@@ -213,8 +213,8 @@
             this.datosGridView.Location = new System.Drawing.Point(12, 91);
             this.datosGridView.Name = "datosGridView";
             this.datosGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.datosGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.datosGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.datosGridView.Size = new System.Drawing.Size(552, 190);
             this.datosGridView.TabIndex = 12;
             // 
@@ -231,7 +231,7 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exercici BD";
-            this.Shown += new System.EventHandler(this.eventoCargarTodos);
+            this.Shown += new System.EventHandler(this.eventoCargarTodosFormLoad);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
