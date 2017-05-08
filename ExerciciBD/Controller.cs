@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 
 namespace ExerciciBD
 {
@@ -57,7 +58,7 @@ namespace ExerciciBD
             {
                 result = reader.GetString(position);
             }
-            catch (SqlNullValueException)
+            catch (Exception)
             {
                 result = "";
             }

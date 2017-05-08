@@ -38,7 +38,8 @@ namespace ExerciciBD
                 tbMail.Text = alumno.Mail;
                 tbNIF.Text = alumno.Nif;
                 tbTelefon.Text = alumno.Telefon;
-                dateTimePicker.Value = DateTime.Parse(alumno.DataNaixement);
+                dateTimePicker.Value = string.IsNullOrEmpty(alumno.DataNaixement) ? dateTimePicker.MinDate :
+                 DateTime.Parse(alumno.DataNaixement);
                 btnAfegir.Enabled = false;
                 btnActualitzar.Enabled = true;
                 btnEliminar.Enabled = true;
